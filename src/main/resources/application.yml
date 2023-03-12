@@ -1,2 +1,52 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:13306/sscm?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: sungkihwan
+    password: Sungkihwan1!
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      #      ddl-auto: validate
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+  hibernate:
+    format-sql: true
+    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    default-batch-fetch-size: 500
+
 jwt:
   secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+
+server:
+  error:
+    include-stacktrace: NEVER
+
+logging:
+  level:
+    root: WARN
+    web: debug
+    sql: debug
+    cache: debug
+    bootstrap: trace
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql: trace
+    org.springframework:
+      security.oauth2.provider.endpoint: WARN
+      data: DEBUG
+      web:
+        servlet.handler: info
+        filter.CommonsRequestLoggingFilter: debug
+      security: debug
+    redis.clients: DEBUG
+
+
+
